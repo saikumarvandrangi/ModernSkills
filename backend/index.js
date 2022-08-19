@@ -29,10 +29,10 @@ else{
 }
 
 const db = mysql.createConnection({
-    user:"root",
-    host:"localhost",
-    password:"12345678",
-    database:"sys"
+    user:"modernskills",
+    host:"modernskills.c8dxbpcuiplz.us-east-1.rds.amazonaws.com",
+    password:"Dev0ps123",
+    database:"modernskills"
 });
 
 //Register 
@@ -80,8 +80,8 @@ app.post('/login', (req, res) =>{
     )
 })
 
-const PORT = process.env.PORT || 5000
+const PORT = 5000
 
-app.listen(PORT, ()=>{
+app.listen(process.env.PORT || PORT, ()=>{
     console.log(`RUNNING in ${process.env.NODE_ENV} in ${PORT}`)
 })

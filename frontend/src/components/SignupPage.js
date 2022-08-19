@@ -11,7 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import "./LoginPage.css"
 import axios from 'axios'
 import logo from '../images/logo.png'
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   
@@ -19,7 +19,7 @@ function Copyright(props) {
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
         {'Copyright © '}
         <Link color="inherit" href="#">
-          LMS
+          Modern Skills
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -34,12 +34,12 @@ export default function SignupPage() {
 
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
- const adminPassword = '123456'
+ const adminPassword = 'Dev0ps123'
 const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post("http://localhost:5000/register",{
+    axios.post("https://modernskills.herokuapp.com/register",{
     username: username,
     password:password
     }).then((res) =>{
@@ -64,7 +64,7 @@ useEffect(()=>{
 
     <ThemeProvider theme={theme}>
         <div className="header" >
-          <img src={logo} />
+          <img src={logo} alt="Modern Skills Logo"/>
         </div>  
       <Container component="main" maxWidth="xs">
         <CssBaseline />

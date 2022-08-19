@@ -10,7 +10,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import "./LoginPage.css"
 import axios from 'axios'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import {loginAuth} from '../features/userSlice'
 import logo from '../images/logo.png'
@@ -20,7 +20,7 @@ function Copyright(props) {
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
         {'Copyright © '}
         <Link color="inherit" href="#">
-          LMS
+          Modern Skills
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -42,7 +42,7 @@ export default function LoginPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-     axios.post("http://localhost:5000/login",{
+     axios.post("https://modernskills.herokuapp.com/login",{
     username: username,
     password:password
     }).then((res) =>{
@@ -64,8 +64,6 @@ useEffect(()=>{
       dispatch(loginAuth({
         username: localStorage.getItem("username")
       }))
-    //  localStorage.setItem("username", login.data[0].username);
-    //  navigate('/sidebar');
     }
 
      
@@ -78,7 +76,7 @@ useEffect(()=>{
 
     <ThemeProvider theme={theme}>
         <div className="header" >
-          <img src={logo} />
+          <img src={logo} alt="Modern Skills Logo"/>
         </div>  
       <Container component="main" maxWidth="xs">
         <CssBaseline />
