@@ -12,11 +12,11 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-
+const env = 'production';
 const __diname = path.resolve()
 // app.use('/', express.static(path.join(__dirname,'/')))
 
-if(process.env.NODE_ENV === 'production'){
+if(env === 'production'){
     app.use(express.static(path.join(__diname, 'frontend/build')))
     app.get('*',(req,res) =>
     res.sendFile(path.resolve(__diname, 'frontend', 'build', 'index.html'))
